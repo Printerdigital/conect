@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goiânia - Printer digital</title>
+    <style>
+        body {
+            width: 600px;
+            height: 4000px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8; /* Cor de fundo do site */
+            color: #333; /* Cor do texto do site */
+        }
+        h1 {
+            color: #ff4500; /* Cor do título principal */
+            margin-top: 50px;
+        }
+        #timer {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ff4500; /* Cor do temporizador */
+        }
+        #whatsapp-button {
+            margin-top: 20px;
+            background-color: #25d366; /* Cor de fundo do botão do WhatsApp */
+            color: #fff; /* Cor do texto do botão do WhatsApp */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #whatsapp-button:hover {
+            background-color: #128c7e; /* Cor de fundo do botão do WhatsApp ao passar o mouse */
+        }
+        .repair-image {
+            width: 500px; /* Largura da imagem */
+            height: 500px; /* Altura da imagem */
+            margin: 20px; /* Espaçamento entre as imagens */
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #555; /* Cor do texto do rodapé */
+        }
+    </style>
+</head>
+<body>
+    <h1>Goiânia - Printer digital</h1>
+    <p style="font-size: 18px;">Obrigado pelo seu contato!</p>
+    <div id="timer">Redirecionando para um de nossos atendentes em 5 segundos...</div>
+    <button id="whatsapp-button">Entrar em contato via WhatsApp</button>
+
+    <script>
+        // Função para atualizar o temporizador
+        function atualizarTemporizador(segundos) {
+            const timerElement = document.getElementById("timer");
+            timerElement.textContent = `Redirecionando para um de nossos atendentes em ${segundos} segundos...`;
+        }
+
+        // Função para redirecionar após o término da contagem
+        function redirecionarParaWhatsApp() {
+            window.location.href = "https://api.whatsapp.com/send/?phone=5562998669360&text&type=phone_number&app_absent=0";
+        }
+
+        // Contagem regressiva de 5 segundos
+        let segundosRestantes = 5;
+        atualizarTemporizador(segundosRestantes);
+
+        const intervalo = setInterval(function() {
+            segundosRestantes--;
+            atualizarTemporizador(segundosRestantes);
+
+            if (segundosRestantes <= 0) {
+                clearInterval(intervalo);
+                redirecionarParaWhatsApp();
+            }
+        }, 1000);
+
+        // Lidar com o clique do botão do WhatsApp
+        const whatsappButton = document.getElementById("whatsapp-button");
+        whatsappButton.addEventListener("click", function() {
+            // Aqui você pode adicionar qualquer código adicional que deseje executar antes de redirecionar para o link do WhatsApp
+            redirecionarParaWhatsApp();
+        });
+    </script>
+
+    <footer>
+        <p>Este site não é afiliado com o Google ou a qualquer entidade do Google. Depois que você sair do Google, a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto nos usamos resultados reais. Nós não vendemos o seu e-mail ou qualquer informação para terceiros. Jamais fazemos nenhum tipo de spam. Se você tiver alguma dúvida, sinta-se à vontade para usar o link de contato e falar conosco em horário comercial de Segunda a Sextas das 08h00 às 18h00. Lemos e respondemos todas as mensagens por ordem de chegada.</p>
+    </footer>
+</body>
+</html>
